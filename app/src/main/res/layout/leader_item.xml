@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="leader"
+            type="me.alberto.gadsleaderboard.app.data.model.Leader" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/list_space"
+        android:layout_marginRight="@dimen/list_space"
+        android:layout_marginBottom="@dimen/list_space"
+        app:backgroundTint="@color/primaryTextColor">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/icon_height"
+                android:layout_height="@dimen/icon_height"
+                android:layout_marginLeft="@dimen/mg_md"
+                android:contentDescription="@string/top_learner_image"
+                app:imageSrc="@{ leader.badgeUrl }"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/top_learner" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/mg_md"
+                android:layout_marginRight="@dimen/mg_md"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <TextView
+                    android:id="@+id/learner_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@{ leader.name }"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    tools:text="Joseph John Doe" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@{ leader.hours != null ? @string/learning_details(leader.hours, leader.country) : @string/iq_score(leader.score, leader.country) }"
+                    tools:text="45 learning hours, Kenya" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
