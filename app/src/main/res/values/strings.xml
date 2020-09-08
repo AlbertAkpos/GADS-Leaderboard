@@ -2,7 +2,7 @@
     <string name="app_name">GadsLeaderboard</string>
     <string name="splash_image_desc">splash image</string>
     <string name="leader_board">LEADERBOARD</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="top_learner_image">Top learner image</string>
     <string name="learning_leaders">Learning Leaders</string>
