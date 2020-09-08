@@ -8,6 +8,15 @@
     <fragment
         android:id="@+id/hostFragment"
         android:name="me.alberto.gadsleaderboard.fragment.HostFragment"
-        tools:layout="@layout/fragment_host"
-        android:label="HostFragment" />
+        android:label="HostFragment"
+        tools:layout="@layout/fragment_host" >
+        <action
+            android:id="@+id/action_hostFragment_to_submissionFragment"
+            app:destination="@id/submissionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/submissionFragment"
+        android:name="me.alberto.gadsleaderboard.screens.submission.SubmissionFragment"
+        android:label="SubmissionFragment"
+        tools:layout="@layout/fragment_submission" />
 </navigation>

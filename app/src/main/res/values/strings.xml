@@ -17,4 +17,5 @@
     <string name="error_dialog_title">Error</string>
     <string name="learning_details">%s learning hours, %s</string>
     <string name="iq_score">%s skill IQ Score, %s</string>
+    <string name="custom_back_btn">back button</string>
 </resources>

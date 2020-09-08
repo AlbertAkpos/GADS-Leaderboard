@@ -1,18 +1,18 @@
 package me.alberto.gadsleaderboard.fragment
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.app_bar_main.view.*
 import me.alberto.gadsleaderboard.R
-import me.alberto.gadsleaderboard.activity.HostActivity
 import me.alberto.gadsleaderboard.databinding.FragmentHostBinding
 
 
@@ -31,8 +31,16 @@ class HostFragment : Fragment() {
 
         initViews()
         setupActionbar()
-
+        setupClickListeners()
         return binding.root
+    }
+
+    private fun setupClickListeners() {
+        val submitBtn = binding.hostToolbar.submitBtn
+        submitBtn?.setOnClickListener {
+            val action = HostFragmentDirections.actionHostFragmentToSubmissionFragment()
+            findNavController().navigate(action)
+        }
     }
 
 
