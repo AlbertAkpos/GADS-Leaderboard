@@ -36,8 +36,8 @@ class LearnLeaderFragment : Fragment() {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         binding = FragmentLearnLeaderBinding.inflate(inflater, container, false)
         bindViewModel()
@@ -49,6 +49,8 @@ class LearnLeaderFragment : Fragment() {
         binding.recyclerView.adapter = LeadersAdapter()
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
+
+        binding.errorView.type = leaderType
     }
 
     private fun getLeaderList() {

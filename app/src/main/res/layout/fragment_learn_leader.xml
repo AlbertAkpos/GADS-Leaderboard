@@ -39,5 +39,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:visibility="gone" />
+
+        <include
+            android:id="@+id/error_view"
+            layout="@layout/error_layout"
+            android:visibility="@{ viewModel.errorMessage != null ? View.VISIBLE : View.GONE }"
+            app:viewModel="@{ viewModel }"
+            tools:visibility="gone" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

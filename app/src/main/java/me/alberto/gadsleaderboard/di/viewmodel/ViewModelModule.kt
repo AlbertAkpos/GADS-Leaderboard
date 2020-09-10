@@ -6,6 +6,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 import me.alberto.gadsleaderboard.screens.learningleader.LeaderViewModel
+import me.alberto.gadsleaderboard.screens.submission.SubmissionViewModel
 
 @Module
 abstract class ViewModelModule {
@@ -16,4 +17,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(LeaderViewModel::class)
     abstract fun bindsLeaderViewModel(leaderViewModel: LeaderViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SubmissionViewModel::class)
+    abstract fun bindsSubmitViewModel(submitViewModel: SubmissionViewModel): ViewModel
 }

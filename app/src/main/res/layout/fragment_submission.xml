@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="me.alberto.gadsleaderboard.screens.submission.SubmissionViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,6 +21,180 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/submission_toolbar">
+
+            <TextView
+                android:id="@+id/proj_sub_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mg_md"
+                android:text="@string/project_submission"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="@color/gold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/gold"
+                app:layout_constraintTop_toBottomOf="@+id/proj_sub_text" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/first_name_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/mg_md"
+                android:layout_marginTop="100dp"
+                android:layout_marginRight="@dimen/sm_mg"
+                android:hint="@string/first_name"
+                app:boxCornerRadiusBottomEnd="@dimen/sm_mg"
+                app:boxCornerRadiusBottomStart="@dimen/sm_mg"
+                app:boxCornerRadiusTopEnd="@dimen/sm_mg"
+                app:boxCornerRadiusTopStart="@dimen/sm_mg"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_line"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintWidth_max="400dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/first_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:text="@={ viewModel.firstName }" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/last_name_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/sm_mg"
+                android:layout_marginTop="100dp"
+                android:layout_marginRight="@dimen/mg_md"
+                android:hint="@string/last_name"
+                app:boxCornerRadiusBottomEnd="@dimen/sm_mg"
+                app:boxCornerRadiusBottomStart="@dimen/sm_mg"
+                app:boxCornerRadiusTopEnd="@dimen/sm_mg"
+                app:boxCornerRadiusTopStart="@dimen/sm_mg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toBottomOf="@+id/view_line"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintWidth_max="400dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/last_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:text="@={ viewModel.lastName }" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/mg_md"
+                android:layout_marginTop="@dimen/input_spacing"
+                android:layout_marginRight="@dimen/mg_md"
+                android:hint="@string/email_address"
+                app:boxCornerRadiusBottomEnd="@dimen/sm_mg"
+                app:boxCornerRadiusBottomStart="@dimen/sm_mg"
+                app:boxCornerRadiusTopEnd="@dimen/sm_mg"
+                app:boxCornerRadiusTopStart="@dimen/sm_mg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/first_name_input"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintWidth_max="400dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:importantForAutofill="no"
+                    android:inputType="textEmailAddress"
+                    android:text="@={ viewModel.email }" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/project_link_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/mg_md"
+                android:layout_marginTop="@dimen/input_spacing"
+                android:layout_marginRight="@dimen/mg_md"
+                android:hint="@string/project_github_link"
+                app:boxCornerRadiusBottomEnd="@dimen/sm_mg"
+                app:boxCornerRadiusBottomStart="@dimen/sm_mg"
+                app:boxCornerRadiusTopEnd="@dimen/sm_mg"
+                app:boxCornerRadiusTopStart="@dimen/sm_mg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email_input"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintWidth_max="400dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/project_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:importantForAutofill="no"
+                    android:inputType="textEmailAddress"
+                    android:text="@={ viewModel.githubLink }" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/input_spacing"
+                android:backgroundTint="@color/gold"
+                android:paddingLeft="30dp"
+                android:paddingTop="10dp"
+                android:paddingRight="30dp"
+                android:paddingBottom="10dp"
+                android:text="@string/submit"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                app:cornerRadius="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/project_link_input" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.50121653" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
