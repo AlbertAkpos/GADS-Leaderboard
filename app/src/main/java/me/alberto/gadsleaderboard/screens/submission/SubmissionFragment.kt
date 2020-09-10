@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import me.alberto.gadsleaderboard.LeaderApp
 import me.alberto.gadsleaderboard.R
+import me.alberto.gadsleaderboard.app.util.extension.hideKeyboard
 import me.alberto.gadsleaderboard.databinding.FragmentSubmissionBinding
 import me.alberto.gadsleaderboard.screens.dialog.ProgressDialog
 import me.alberto.gadsleaderboard.screens.dialog.SuccessStatusDialog
@@ -42,7 +43,15 @@ class SubmissionFragment : Fragment() {
         setupActionbar()
         bindViewModel()
         setupObservers()
+        setupClickListeners()
         return binding.root
+    }
+
+    private fun setupClickListeners() {
+        binding.submitBtn.setOnClickListener {
+            it.hideKeyboard()
+            viewModel.verify()
+        }
     }
 
     private fun bindViewModel() {
