@@ -17,8 +17,6 @@ class LeaderViewModel @Inject constructor(
     val leaderList: LiveData<List<Leader>> = _leaderList
 
     private val _errorMessage = MutableLiveData<String>()
-
-    //TODO handle error
     val errorMessage = _errorMessage
 
     private val _loading = MutableLiveData<Boolean>()
