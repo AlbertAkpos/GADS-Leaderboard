@@ -7,6 +7,7 @@ import me.alberto.gadsleaderboard.activity.HostActivity
 import me.alberto.gadsleaderboard.di.viewmodel.ViewModelModule
 import me.alberto.gadsleaderboard.fragment.HostFragment
 import me.alberto.gadsleaderboard.screens.learningleader.LearnLeaderFragment
+import me.alberto.gadsleaderboard.screens.submission.SubmissionFragment
 
 @Component(modules = [NetworkModule::class, AppModule::class, ViewModelModule::class])
 interface AppComponent {
@@ -18,4 +19,5 @@ interface AppComponent {
     fun inject(fragment: LearnLeaderFragment)
     fun inject(activity: HostActivity)
     fun inject(fragment: HostFragment)
+    fun inject(fragment: SubmissionFragment)
 }

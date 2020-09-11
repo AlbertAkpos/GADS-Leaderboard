@@ -1,4 +1,4 @@
-package me.alberto.gadsleaderboard.app.data.remote.leader
+package me.alberto.gadsleaderboard.app.data.remote.source.leader
 
 import me.alberto.gadsleaderboard.app.data.remote.response.leaders
 

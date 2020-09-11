@@ -9,10 +9,15 @@
         android:id="@+id/hostFragment"
         android:name="me.alberto.gadsleaderboard.fragment.HostFragment"
         android:label="HostFragment"
-        tools:layout="@layout/fragment_host" >
+        tools:layout="@layout/fragment_host">
         <action
             android:id="@+id/action_hostFragment_to_submissionFragment"
-            app:destination="@id/submissionFragment" />
+            app:destination="@id/submissionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
     </fragment>
     <fragment
         android:id="@+id/submissionFragment"

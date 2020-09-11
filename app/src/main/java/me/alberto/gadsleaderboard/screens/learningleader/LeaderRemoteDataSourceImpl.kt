@@ -1,7 +1,7 @@
 package me.alberto.gadsleaderboard.screens.learningleader
 
 import me.alberto.gadsleaderboard.app.data.remote.api.Api
-import me.alberto.gadsleaderboard.app.data.remote.leader.LeaderRemoteDataSource
+import me.alberto.gadsleaderboard.app.data.remote.source.leader.LeaderRemoteDataSource
 import me.alberto.gadsleaderboard.app.data.remote.response.leaders
 import javax.inject.Inject
 

@@ -10,8 +10,8 @@ import me.alberto.gadsleaderboard.app.exception.ErrorHandler
 import javax.inject.Inject
 
 class LeaderViewModel @Inject constructor(
-        private val repository: LeaderRepository,
-        private val errorHandle: ErrorHandler,
+    private val repository: LeaderRepository,
+    private val errorHandle: ErrorHandler,
 ) : ViewModel() {
     private val _leaderList = MutableLiveData<List<Leader>>()
     val leaderList: LiveData<List<Leader>> = _leaderList
@@ -25,6 +25,7 @@ class LeaderViewModel @Inject constructor(
     fun getLeaderList(type: Int) {
         viewModelScope.launch {
             _loading.value = true
+            _errorMessage.postValue(null)
             try {
                 if (type == 1) {
                     _leaderList.value = repository.getLearnLeaders()
