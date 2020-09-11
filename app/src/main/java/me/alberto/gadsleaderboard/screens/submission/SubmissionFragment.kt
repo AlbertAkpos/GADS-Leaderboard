@@ -14,6 +14,8 @@ import me.alberto.gadsleaderboard.LeaderApp
 import me.alberto.gadsleaderboard.R
 import me.alberto.gadsleaderboard.app.util.extension.hideKeyboard
 import me.alberto.gadsleaderboard.databinding.FragmentSubmissionBinding
+import me.alberto.gadsleaderboard.screens.dialog.ConfirmDialog
+import me.alberto.gadsleaderboard.screens.dialog.ConfirmDialog.ConfirmListener
 import me.alberto.gadsleaderboard.screens.dialog.ProgressDialog
 import me.alberto.gadsleaderboard.screens.dialog.SuccessStatusDialog
 import javax.inject.Inject
@@ -50,7 +52,10 @@ class SubmissionFragment : Fragment() {
     private fun setupClickListeners() {
         binding.submitBtn.setOnClickListener {
             it.hideKeyboard()
-            viewModel.verify()
+            val verify = viewModel.verify()
+            if (verify) {
+                showConfirmDialog()
+            }
         }
     }
 
@@ -60,12 +65,12 @@ class SubmissionFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        viewModel.success.observe(viewLifecycleOwner, Observer { submitSuccess ->
-            submitSuccess ?: return@Observer
+        viewModel.success.observe(viewLifecycleOwner, Observer { submitStatus ->
+            submitStatus ?: return@Observer
             //show dialog based on submitSuccess value
             showSuccessStatusDialog(
-                submitSuccess,
-                if (submitSuccess) getString(R.string.submission_success)
+                submitStatus,
+                if (submitStatus) getString(R.string.submission_success)
                 else
                     getString(R.string.submission_failure)
             )
@@ -81,6 +86,15 @@ class SubmissionFragment : Fragment() {
             }
 
         })
+    }
+
+    private fun showConfirmDialog() {
+        val confirmDialog = ConfirmDialog.newInstance(object : ConfirmListener {
+            override fun onConfirm() {
+                viewModel.submitProject()
+            }
+        })
+        confirmDialog.show(requireActivity().supportFragmentManager, confirmDialog.javaClass.name)
     }
 
 

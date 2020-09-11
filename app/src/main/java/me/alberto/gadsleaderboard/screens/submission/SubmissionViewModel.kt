@@ -25,7 +25,9 @@ class SubmissionViewModel @Inject constructor(
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> = _loading
 
-    private fun submitProject() {
+    fun submitProject() {
+        if (!verify()) return
+
         viewModelScope.launch {
             try {
                 _loading.postValue(true)
@@ -41,28 +43,20 @@ class SubmissionViewModel @Inject constructor(
             } catch (exp: Exception) {
                 _loading.postValue(false)
                 _success.postValue(false)
-                val err = errorHandler.getErrorMessage(exp)
-                println(
-                    """
-                   
-                    error: ${exp.message}
-                    
-                """
-                )
+                errorHandler.getErrorMessage(exp)
             }
         }
     }
 
-    fun verify() {
+    fun verify(): Boolean {
         if (email.value.isNullOrEmpty() ||
             firstName.value.isNullOrEmpty() ||
             lastName.value.isNullOrEmpty() ||
             githubLink.value.isNullOrEmpty()
         ) {
-            return
+            return false
         }
-
-        submitProject()
+        return true
     }
 
 }
