@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.HostActivity"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="portrait"/>
         <activity android:name=".screens.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
