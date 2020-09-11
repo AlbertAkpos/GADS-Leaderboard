@@ -30,10 +30,10 @@ class SubmissionViewModel @Inject constructor(
             try {
                 _loading.postValue(true)
                 repository.submitProject(
-                    email.value!!,
-                    firstName.value!!,
-                    lastName.value!!,
-                    githubLink.value!!
+                    email.value!!.trim(),
+                    firstName.value!!.trim(),
+                    lastName.value!!.trim(),
+                    githubLink.value!!.trim()
                 )
 
                 _loading.postValue(false)
@@ -41,7 +41,14 @@ class SubmissionViewModel @Inject constructor(
             } catch (exp: Exception) {
                 _loading.postValue(false)
                 _success.postValue(false)
-                errorHandler.getErrorMessage(exp)
+                val err = errorHandler.getErrorMessage(exp)
+                println(
+                    """
+                   
+                    error: ${exp.message}
+                    
+                """
+                )
             }
         }
     }
