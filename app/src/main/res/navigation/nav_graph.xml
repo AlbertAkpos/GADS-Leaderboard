@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/hostFragment">
+
+    <fragment
+        android:id="@+id/hostFragment"
+        android:name="me.alberto.gadsleaderboard.fragment.HostFragment"
+        android:label="HostFragment"
+        tools:layout="@layout/fragment_host">
+        <action
+            android:id="@+id/action_hostFragment_to_submissionFragment"
+            app:destination="@id/submissionFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/submissionFragment"
+        android:name="me.alberto.gadsleaderboard.screens.submission.SubmissionFragment"
+        android:label="SubmissionFragment"
+        tools:layout="@layout/fragment_submission" />
+</navigation>
